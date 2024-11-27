@@ -10,7 +10,7 @@
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.amd.js" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.common.js" />
-    <None Include="wwwroot\js\vendor\apexcharts\apexcharts.css" />
+    <None Include="wwwroot\css\apexcharts.css" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.esm.js" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.js" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.min.js" />
