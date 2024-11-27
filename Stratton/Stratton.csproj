@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\img\Strattonlogo.png" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.amd.js" />
     <None Include="wwwroot\js\vendor\apexcharts\apexcharts.common.js" />
     <None Include="wwwroot\css\apexcharts.css" />
