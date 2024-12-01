@@ -1,0 +1,27 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Stratton.Models.AdminModels;
+
+namespace Stratton.Database
+{
+    public class ApplicationDbContext:DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<AdminUser> AdminUsers { get; set; }
+
+        public DbSet<ModeratorUser> moderatorUsers { get; set; }
+
+        public DbSet<PremiumUser> premiumUsers { get; set; }
+
+        public DbSet<AboutUs> Abouts { get; set; }
+
+        public DbSet<ContactUs> Contacts { get; set; }
+        public DbSet<IdentityCategory> IdentityCategories { get; set; }
+
+        public DbSet<WebIdentity> webIdentities { get; set; }
+
+
+    }
+}
