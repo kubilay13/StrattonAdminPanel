@@ -45,5 +45,11 @@ namespace Stratton.Controllers
             var premiumuser = _Context.premiumUsers.ToList();
             return View(premiumuser);
         }
+
+        public IActionResult AdminProfile()
+        {
+           
+            return View();
+        }
     }
 }
