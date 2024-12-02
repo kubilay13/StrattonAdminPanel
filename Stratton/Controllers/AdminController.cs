@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Stratton.Database;
-using Stratton.Models.ViewModels;
 
 namespace Stratton.Controllers
 {
@@ -48,7 +47,6 @@ namespace Stratton.Controllers
 
         public IActionResult AdminProfile()
         {
-           
             return View();
         }
     }
