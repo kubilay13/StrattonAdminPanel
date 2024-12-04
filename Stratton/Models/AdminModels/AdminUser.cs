@@ -13,5 +13,7 @@ namespace Stratton.Models.AdminModels
         public string AdminUserPassword { get; set; }
         [MaxLength(20)]
         public string? Position { get; set; }
+
+        public DateTime CreateDate { get; set; } = DateTime.UtcNow;
     }
 }

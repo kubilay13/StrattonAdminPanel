@@ -1,17 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Stratton.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Inşt : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Abouts",
+                name: "Aboutss",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,7 +21,7 @@ namespace Stratton.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Abouts", x => x.Id);
+                    table.PrimaryKey("PK_Aboutss", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -32,7 +33,8 @@ namespace Stratton.Migrations
                     AdminUserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AdminUserEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AdminUserPassword = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,7 +80,8 @@ namespace Stratton.Migrations
                     ModeratorUserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ModeratorUserEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ModeratorUserPassword = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,7 +97,8 @@ namespace Stratton.Migrations
                     PremiumUserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PremiumUserEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PremiumUserPassword = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Position = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,7 +127,7 @@ namespace Stratton.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Abouts");
+                name: "Aboutss");
 
             migrationBuilder.DropTable(
                 name: "AdminUsers");

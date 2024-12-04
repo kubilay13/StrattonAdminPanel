@@ -43,6 +43,7 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Password</th>
                                         <th scope="col">Position</th>
+                                        <td>@item.CreateDate</td>
                                         <th scope="col">Top Users: @ViewBag.premiumusers</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,7 @@
                                             <td>@item.PremiumUserEmail</td>
                                             <td>@item.PremiumUserPassword</td>
                                             <td>@item.Position</td>
+                                            <td>@item.CreateDate</td>
                                             <td>
                                                 <form action="@Url.Action("Delete", "Admin", new { id = item.Id, userType = "premium" })" method="post">
                                                     <button type="submit" class="btn btn-danger btn-sm">

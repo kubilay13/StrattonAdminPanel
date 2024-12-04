@@ -23,6 +23,7 @@ namespace Stratton.Controllers
         }
         public IActionResult AdminUsers()
         {
+
             int adminusers = _Context.AdminUsers.Count(); 
             ViewBag.AdminUsers = adminusers;
             var adminuser = _Context.AdminUsers.ToList();
