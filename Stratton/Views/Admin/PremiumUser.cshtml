@@ -55,6 +55,15 @@
                                             <td>@item.PremiumUserEmail</td>
                                             <td>@item.PremiumUserPassword</td>
                                             <td>@item.Position</td>
+                                            <td>
+                                                <form action="@Url.Action("Delete", "Admin", new { id = item.Id, userType = "premium" })" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                      Sil
+                                                    </button>
+                                                </form>
+
+                                            </td>
+
                                         </tr>
                                     }
                                 </tbody>

@@ -49,5 +49,31 @@ namespace Stratton.Controllers
         {
             return View();
         }
+
+
+        [HttpPost]
+        public IActionResult Delete(int id, string userType)
+        {
+            if (userType == "moderator")
+            {
+                var moderatorUser = _Context.moderatorUsers.Find(id);
+                if (moderatorUser != null)
+                {
+                    _Context.moderatorUsers.Remove(moderatorUser);
+                    _Context.SaveChanges();
+                }
+            }
+            else if (userType == "premium")
+            {
+                var premiumUser = _Context.premiumUsers.Find(id);
+                if (premiumUser != null)
+                {
+                    _Context.premiumUsers.Remove(premiumUser);
+                    _Context.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

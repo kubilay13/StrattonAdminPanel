@@ -47,6 +47,14 @@
                                             <td>@item.ModeratorUserEmail</td>
                                             <td>@item.ModeratorUserPassword</td>
                                             <td>@item.Position</td>
+                                            <td>
+                                                <form action="@Url.Action("Delete", "Admin", new { id = item.Id, userType = "moderator" })" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                     Sil
+                                                    </button>
+                                                </form>
+
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>
