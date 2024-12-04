@@ -51,6 +51,14 @@ namespace Stratton.Controllers
         }
 
 
+        public IActionResult AdminVideoAdd()
+        {
+            return View();
+        }
+
+
+
+
         [HttpPost]
         public IActionResult Delete(int id, string userType)
         {
