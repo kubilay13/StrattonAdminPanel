@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<body >
+    <main id="main" class="main">
+        <h4>Kullanıcı Ekle</h4>
+        <form asp-action="AddUserMethot" method="post">
+            <div class="form-group">
+                <label for="PremiumUserName">Kullanıcı Adı:</label>
+                <input type="text" class="form-control" id="PremiumUserName" name="PremiumUserName" required />
+            </div>
+            <div class="form-group">
+                <label for="PremiumUserEmail">Email:</label>
+                <input type="email" class="form-control" id="PremiumUserEmail" name="PremiumUserEmail" required />
+            </div>
+            <div class="form-group">
+                <label for="PremiumUserPassword">Şifre:</label>
+                <input type="password" class="form-control" id="PremiumUserPassword" name="PremiumUserPassword" required />
+            </div>
+            <div class="form-group">
+                <label for="Position">Pozisyon:</label>
+                <input type="text" class="form-control" id="Position" name="Position" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mt-2">Kullanıcıyı Ekle</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+        
+
+

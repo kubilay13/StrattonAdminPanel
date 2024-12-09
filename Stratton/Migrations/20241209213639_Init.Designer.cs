@@ -12,8 +12,8 @@ using Stratton.Database;
 namespace Stratton.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241204220414_Inşt")]
-    partial class Inşt
+    [Migration("20241209213639_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

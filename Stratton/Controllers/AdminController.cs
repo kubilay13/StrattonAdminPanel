@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Stratton.Database;
+using Stratton.Models.AdminModels;
 
 namespace Stratton.Controllers
 {
@@ -57,7 +58,20 @@ namespace Stratton.Controllers
             return View();
         }
 
+        public IActionResult AddUser()
+        {   
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult AddUserMethot(PremiumUser premiumUser)
+        {
+
+            _Context.premiumUsers.Add(premiumUser);
+            _Context.SaveChanges();
+
+            return RedirectToAction("PremiumUser");
+        }
 
 
         [HttpPost]
@@ -83,6 +97,10 @@ namespace Stratton.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        
+
+     
 
     }
 }

@@ -38,6 +38,9 @@
                                         <th scope="col">Create Date</th>
                                         <th scope="col">Top Users : @ViewBag.moderatorusers</th>
                                     </tr>
+                                    <a href="~/Admin/AddUser">
+                                        <button type="submit" class="btn btn-primary mt-0">Kullanıcı Ekle</button>
+                                    </a>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)

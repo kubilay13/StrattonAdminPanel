@@ -43,9 +43,12 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Password</th>
                                         <th scope="col">Position</th>
-                                        <td>@item.CreateDate</td>
+                                        <th scope="col">CreateDate</th>
                                         <th scope="col">Top Users: @ViewBag.premiumusers</th>
                                     </tr>
+                                    <a href="~/Admin/AddUser">
+                                        <button type="submit" class="btn btn-primary mt-0">Kullanıcı Ekle</button>
+                                    </a>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
