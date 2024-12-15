@@ -20,7 +20,7 @@
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-10">
 
                     <div class="card">
                         <div class="card-body">
@@ -53,12 +53,58 @@
                                             <td>@item.Position</td>
                                             <td>@item.CreateDate</td>
                                             <td>
-                                                <form action="@Url.Action("Delete", "Admin", new { id = item.Id, userType = "moderator" })" method="post">
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                     Sil
-                                                    </button>
-                                                </form>
+                                                <div class="d-flex">
+                                                    <!-- Silme Butonu -->
+                                                    <form action="@Url.Action("Delete", "Admin", new { id = item.Id, userType = "premium" })" method="post" class="me-2">
+                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                            Sil
+                                                        </button>
+                                                    </form>
+
+                                                    <!-- Güncelleme Butonu -->
+                                                    <form action="#" method="get" data-bs-toggle="modal" data-bs-target="#updateModal-@item.Id">
+                                                        <button type="submit" class="btn btn-warning btn-sm">
+                                                            Güncelle
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
+                                            <!--Modal Sayfası Başlangıç-->
+                                            <div class="modal fade" id="updateModal-@item.Id" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="updateModalLabel">Kullanıcı Güncelle</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- Güncelleme Formu -->
+                                                            <form action="@Url.Action("EditModeratorUser", "Admin", new { id = item.Id })" method="post">
+                                                                <div class="mb-3">
+                                                                    <label for="userName" class="form-label">Kullanıcı Adı</label>
+                                                                    <input type="text" class="form-control" id="userName" name="ModeratorUserName" value="@item.ModeratorUserName">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="userEmail" class="form-label">Email</label>
+                                                                    <input type="email" class="form-control" id="userEmail" name="ModeratorUserEmail" value="@item.ModeratorUserEmail">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="userPassword" class="form-label">Şifre</label>
+                                                                    <input type="password" class="form-control" id="userPassword" name="ModeratorUserPassword" value="@item.ModeratorUserPassword">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="position" class="form-label">Pozisyon</label>
+                                                                    <input type="text" class="form-control" id="position" name="Position" value="@item.Position">
+                                                                </div>
+                                                                <a href="~/Admin/PremiumUser">
+                                                                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                                                                </a>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Modal Sayfası Bitiş -->
                                         </tr>
                                     }
                                 </tbody>

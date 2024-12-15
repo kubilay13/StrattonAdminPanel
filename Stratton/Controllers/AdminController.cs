@@ -63,6 +63,8 @@ namespace Stratton.Controllers
             return View();
         }
 
+        //-----------------------HTTP İSTEKLERİ-----------------------
+
         [HttpPost]
         public IActionResult AddUserMethot(PremiumUser premiumUser)
         {
@@ -72,7 +74,6 @@ namespace Stratton.Controllers
 
             return RedirectToAction("PremiumUser");
         }
-
 
         [HttpPost]
         public IActionResult Delete(int id, string userType)
@@ -98,9 +99,35 @@ namespace Stratton.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [HttpPost]
+        public IActionResult EditPremiumUser(int id, string PremiumUserName, string PremiumUserEmail, string PremiumUserPassword, string Position) 
+        {
+            var premiumuseredit = _Context.premiumUsers.Find(id);
+            if (premiumuseredit != null)
+            {
+                premiumuseredit.PremiumUserName = PremiumUserName;
+                premiumuseredit.PremiumUserEmail = PremiumUserEmail;
+                premiumuseredit.PremiumUserPassword = PremiumUserPassword;
+                premiumuseredit.Position = Position;
 
-     
+                _Context.SaveChanges();
+            }
+            return RedirectToAction("PremiumUser");
+        }
 
+        [HttpPost]
+        public IActionResult EditModeratorUser(int id,string ModeratorUserName,string ModeratorUserEmail,string ModeratorUserPassword, string Position)
+        {
+            var moderatoruseredit =_Context.moderatorUsers.Find(id);
+            if (moderatoruseredit != null)
+            {
+                moderatoruseredit.ModeratorUserName = ModeratorUserName;
+                moderatoruseredit.ModeratorUserEmail = ModeratorUserEmail;
+                moderatoruseredit.ModeratorUserPassword= ModeratorUserPassword;
+                moderatoruseredit.Position = Position;  
+                _Context.SaveChanges();
+            }
+            return RedirectToAction("ModeratorUser");
+        }
     }
 }
