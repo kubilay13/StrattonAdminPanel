@@ -22,6 +22,13 @@ namespace Stratton.Controllers
             ViewBag.PremiumUser = premiumuser;
             return View(toplamuser);
         }
+        public IActionResult Users()
+        {
+            int users = _Context.Users.Count();
+            ViewBag.Users = users;
+            var allusers = _Context.Users.ToList();
+            return View(allusers);
+        }
         public IActionResult AdminUsers()
         {
 
@@ -96,6 +103,15 @@ namespace Stratton.Controllers
                     _Context.SaveChanges();
                 }
             }
+            else if (userType == "user")
+            {
+                var user = _Context.Users.Find(id);
+                if (user != null)
+                {
+                    _Context.Users.Remove(user);
+                    _Context.SaveChanges();
+                }
+            }
             return RedirectToAction("Index");
         }
 
@@ -128,6 +144,20 @@ namespace Stratton.Controllers
                 _Context.SaveChanges();
             }
             return RedirectToAction("ModeratorUser");
+        }
+
+        [HttpPost]
+        public IActionResult EditUser(int id, string UserName, string UserEmail, string UserPassword)
+        {
+            var useredit = _Context.Users.Find(id);
+            if (useredit != null)
+            {
+                useredit.UserName = UserName;
+                useredit.UserEmail = UserEmail;
+                useredit.UserPassword = UserPassword;
+                _Context.SaveChanges();
+            }
+            return RedirectToAction("Users");
         }
     }
 }

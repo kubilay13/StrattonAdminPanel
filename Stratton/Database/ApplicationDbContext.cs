@@ -15,6 +15,8 @@ namespace Stratton.Database
 
         public DbSet<PremiumUser> premiumUsers { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public DbSet<AboutUs> Aboutss { get; set; }
 
         public DbSet<ContactUs> Contacts { get; set; }
