@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Stratton.Models.AdminModels;
+using Stratton.Models.AdminModels.CryptoWalletModels;
 
 namespace Stratton.Database
 {
@@ -24,6 +25,6 @@ namespace Stratton.Database
 
         public DbSet<WebIdentity> webIdentities { get; set; }
 
-
+        public DbSet<TronWalletModels> TronWalletModelss { get; set; }
     }
 }

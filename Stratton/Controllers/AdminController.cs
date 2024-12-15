@@ -70,6 +70,7 @@ namespace Stratton.Controllers
             return View();
         }
 
+   
         //-----------------------HTTP İSTEKLERİ-----------------------
 
         [HttpPost]

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "CreateTronWallet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main id="main" class="main">
+    <h1>CreateTronWallet</h1>
+
+    @if (ViewData["WalletAddress"] != null)
+    {
+        <p>@Html.Raw(ViewData["WalletAddress"])</p>
+    }
+
+    <form method="post">
+        <button type="submit" class="btn btn-primary" name="generateWallet" value="true">Yeni Cüzdan Oluştur</button>
+    </form>
+</main>

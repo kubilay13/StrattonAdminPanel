@@ -98,6 +98,33 @@ namespace Stratton.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Stratton.Models.AdminModels.CryptoWalletModels.TronWalletModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PrivateKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WalletAdress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TronWalletModelss");
+                });
+
             modelBuilder.Entity("Stratton.Models.AdminModels.IdentityCategory", b =>
                 {
                     b.Property<int>("Id")
