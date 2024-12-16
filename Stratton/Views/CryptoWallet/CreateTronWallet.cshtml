@@ -1,17 +1,70 @@
-﻿
+﻿@model IEnumerable<Stratton.Models.AdminModels.CryptoWalletModels.TronWalletModels>
 @{
     ViewData["Title"] = "CreateTronWallet";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<main id="main" class="main">
-    <h1>CreateTronWallet</h1>
+<body>
+    <main id="main" class="main">
+       
+        <div class="pagetitle">
+            <h1>General Tables</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item active">General</li>
+                </ol>
+            </nav>
+        </div>
 
-    @if (ViewData["WalletAddress"] != null)
-    {
-        <p>@Html.Raw(ViewData["WalletAddress"])</p>
-    }
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cüzdan Tablosu </h5>
+                            @if (ViewData["WalletAddress"] != null)
+                            {
+                                <p>@Html.Raw(ViewData["WalletAddress"])</p>
+                            }
+                            <form method="post">
+                                <button type="submit" class="btn btn-primary" name="generateWallet" value="true">Yeni Cüzdan Oluştur</button>
+                            </form>
+                            <!-- Default Table -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Create Date</th>
 
-    <form method="post">
-        <button type="submit" class="btn btn-primary" name="generateWallet" value="true">Yeni Cüzdan Oluştur</button>
-    </form>
-</main>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.Id</th>
+                                            <td>@item.WalletAdress</td>
+                                            <td>@item.PrivateKey</td>
+                                            <td>@item.Amount</td>
+                                            <td>@item.CreateDate</td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+
+
+
+

@@ -8,9 +8,10 @@ namespace Stratton.Controllers
     {
 
         private readonly TronWalletServices _tronWalletServices;
-
-        public CryptoWalletController(TronWalletServices tronWalletServices)
+        private readonly ApplicationDbContext _DbContext;
+        public CryptoWalletController(TronWalletServices tronWalletServices,ApplicationDbContext applicationDbContext)
         {
+            _DbContext = applicationDbContext;
             _tronWalletServices = tronWalletServices;
 
         }
@@ -22,7 +23,8 @@ namespace Stratton.Controllers
 
         public async Task<IActionResult> CreateTronWallet()
         {
-            return View();
+            var allwallets = _DbContext.TronWalletModelss.ToList();
+            return View(allwallets);
         }
 
         //----------------- HTTP İSTEKLERİ -----------------
@@ -34,8 +36,7 @@ namespace Stratton.Controllers
                 var walletInfo = await _tronWalletServices.TronCreateWalletService();
                 ViewData["WalletAddress"] = walletInfo;
             }
-
-            return View();
+            return RedirectToAction("CreateTronWallet");
         }
     }
 }
