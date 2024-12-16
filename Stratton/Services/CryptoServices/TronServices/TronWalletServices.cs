@@ -27,7 +27,6 @@ namespace Stratton.Services.CryptoServices.TronServices
                 PrivateKey = privatekey,
                 Amount = 0,
                 CreateDate = DateTime.UtcNow,
-
             };
 
             if (_Context.TronWalletModelss != null)
